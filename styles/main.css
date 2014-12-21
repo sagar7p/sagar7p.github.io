@@ -10,3 +10,12 @@ header
 .current{
 	font-weight: bold;
 }
+
+.row-justified{
+	float:none;
+}
+
+body { 
+    background-image: url("images/bkg.jpg");
+    background-repeat: no-repeat;
+}
