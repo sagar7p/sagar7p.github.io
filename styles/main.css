@@ -1,0 +1,12 @@
+header
+{
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-nav.nav-justified > li{
+    float:none;
+}
+
+.current{
+	font-weight: bold;
+}
