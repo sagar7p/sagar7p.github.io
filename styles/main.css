@@ -15,4 +15,18 @@ header
 	float:none;
 }
 
+#main
+{
+	font-family: 'Lato', sans-serif;
+}
 
+#resume
+{
+	float:none;
+}
+
+span.glyphicon {
+
+    font-size: 50px;  
+
+    }
