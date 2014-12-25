@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html>
 	<head>
@@ -42,30 +44,73 @@
 			</nav>
 		</div>
 		</header>
-	<div class="container">
-			<div class="row">
-				<div class ="col-md-6">
-					<div class="panel panel-info">
+	<div class="container" id="main">
+			<div class="row-fluid text-center">
+				<div class ="col-xs-6 col-md-4">
+					<div class="panel panel-info text-center">
 					  <div class="panel-heading">LinkedIn</div>
 					  <div class="panel-body">
-					  	<a href="https://www.linkedin.com/in/sagarpunhani">Click Here</a>
+					  	<div class="row">
+						  <div class="col-xs-12 col-md-12">
+						    <a href="https://www.linkedin.com/in/sagarpunhani" class="thumbnail" >
+						      <img src="images/linkedin.png" alt="linkedin" class ="img-responsive img-rounded" style="width:150px;height:150px">
+						    </a>
+						  </div>
+						 </div>
 					    </a>
 					  </div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="panel panel-info">
+				<div class="col-xs-6 col-md-4">
+					<div class="panel panel-success text-center">
 					  <div class="panel-heading">Github</div>
 					  <div class="panel-body">
-					    <a href="https://www.github.com/sagar7p">Click Here</a>
+					  	<div class="row">
+						  <div class="col-xs-12 col-md-12">
+						    <a href="https://www.github.com/sagar7p" class="thumbnail">
+						      <img src="images/github.png" alt="github" class ="img-responsive img-rounded" style="width:150px;height:150px">
+						    </a>
+						  </div>
+						 </div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-4">
+					<div class="panel panel-warning text-center">
+					  <div class="panel-heading">Challenge Post</div>
+					  <div class="panel-body">
+					  	<div class="row">
+						  <div class="col-xs-12 col-md-12">
+						    <a href="http://challengepost.com/sagar7p" class="thumbnail">
+						      <img src="images/challenge.jpg" alt="challenge" class ="img-responsive img-rounded" style="width:150px;height:150px">
+						    </a>
+						  </div>
+						 </div>
 					  </div>
 					</div>
 				</div>
 				<div class="col-md-12">
-					<div class="panel panel-info">
-					  <div class="panel-heading">Email</div>
+					<div class="panel panel-primary text-center">
+					  <div class="panel-heading">Message Me</div>
 					  <div class="panel-body">
-					    sagar7p@gmail.com
+					  	<form action="send.php" method="post">
+					    <div class="input-group cols-md-12 cols-xs-12">
+							  <span class="input-group-addon" id="basic-addon1">Name</span>
+							  <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+						</div>
+						<br>
+						<div class="input-group cols-md-12 cols-xs-12">
+							  <span class="input-group-addon" id="basic-addon1">Email</span>
+							  <input type="text" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+						</div>
+						<br>
+						<div class="input-group cols-md-12 cols-xs-12">
+							  <span class="input-group-addon" id="basic-addon1">Message</span>
+							  <textarea class="form-control" rows="3" name="comment" id="comment" placeholder="Message" required></textarea>
+						</div>
+						<br>
+						<button type="button" name="submit" class="btn btn-default">Submit</button>
+						</form>
 					  </div>
 					</div>
 				</div>
