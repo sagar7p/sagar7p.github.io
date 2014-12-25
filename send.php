@@ -9,8 +9,7 @@ $body = "Name: $name \n Email: $email \n Message: $comment";
 
 mail($to,$subject,$body);
 
-echo "Message Sent! <a href='contact.html'>Click Here</a> to send another email";
-/*if(isset($_POST['submit'])) {
+header: header("location: contact.html");/*if(isset($_POST['submit'])) {
 	$msg = 'Name: ' .$_POST['name'] ."\n"
 			.'Email: ' .$_POST['email'] ."\n"
 			.'Message: ' .$_POST['comment'] ."\n"
