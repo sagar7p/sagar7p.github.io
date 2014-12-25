@@ -5,3 +5,4 @@ if(isset($_POST['submit'])) {
 			.'Message: ' .$_POST['comment'] ."\n"
 	mail('sagar7p@gmail.com','Contact Form', $msg);
 }
+?>
