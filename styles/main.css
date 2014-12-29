@@ -33,3 +33,13 @@ span.glyphicon {
 embed:focus { 
     outline: none;
 }
+#footer {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+
+    background-color:gray;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
