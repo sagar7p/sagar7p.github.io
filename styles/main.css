@@ -44,4 +44,17 @@ embed:focus {
     text-align:center;
     padding:5px; 
 }
+img {
+  max-width: 100%
+}
+.header {
+  background: url(header.png) 50% no-repeat;
+  background-size: contain
+}
+@media screen and (max-width: 500px) {
+/* applies only if the screen is narrower than 500px */
+  #header {
+    position: static
+  }
+}
 
