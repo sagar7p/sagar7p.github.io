@@ -18,6 +18,7 @@ header
 #main
 {
 	font-family: 'Lato', sans-serif;
+	display:none;
 }
 
 #resume
@@ -43,3 +44,4 @@ embed:focus {
     text-align:center;
     padding:5px; 
 }
+
