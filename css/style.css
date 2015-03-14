@@ -179,15 +179,17 @@
 
 	.panel-danger > .panel-heading {
 		color: #FFFFFF;
-  background-color: #3366FF;
-  border-color: #3366FF;
+  background-color: #BD2031;
+  border-color: #BD2031;
 }
 
 .panel-warning > .panel-heading {
 		color: #FFFFFF;
-  background-color: #33CCFF;
-  border-color: #33CCFF;
+  background-color: #E1DA21;
+  border-color: #E1DA21;
 }
+
+
 
 /* Section/Article */
 
@@ -950,7 +952,8 @@
 	}
 
 		.main.style1 {
-			background: #fff;
+			background-attachment: fixed,							fixed;
+			background-color: #F8F8F8 
 		}
 
 		.main.style2 {
@@ -958,8 +961,19 @@
 			color: rgba(255, 255, 255, 0.75);
 			background-attachment: fixed,							fixed;
 			background-image: url("images/overlay1.png"), url("../images/header.jpg");
-			background-size: auto,							cover;
+			background-image: url("http://tagdigitalphotography.com/wp-content/uploads/2010/06/SCA-Evening-small.jpg") ;
+			background-repeat: no-repeat;
+			background-size: auto, cover;
+			
+
+			opacity: 1.5;
+
 		}
+		.row {
+			opacity: 1;
+		}
+
+
 
 			.main.style2 a {
 				border-bottom-color: rgba(255, 255, 255, 0.5);
@@ -1244,7 +1258,7 @@
 		background-color: #4686a0;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed,							fixed,							fixed;
-		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
+		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #BD2031, #FF6600 50%,  #FFCC00 95%);
 		background-position: top left,						center center,					center center;
 		background-size: auto,							cover,							cover;
 		text-align: center;
