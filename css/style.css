@@ -169,14 +169,6 @@
 		text-align: right;
 	}
 
-	.extra-padding {
-		margin-left: 100px;
-	}
-
-	.extra-margin {
-		margin-top: -75px;
-	}
-
 	.panel-danger > .panel-heading {
 		color: #FFFFFF;
   background-color: #BD2031;
