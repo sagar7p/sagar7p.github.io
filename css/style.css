@@ -181,6 +181,10 @@
   border-color: #E1DA21;
 }
 
+.panel {
+	height: 350px;
+}
+
 
 
 /* Section/Article */
@@ -627,11 +631,15 @@
 		ul.major-icons {
 			list-style: none;
 			padding-left: 0;
+
+			display: inline-block;
 		}
 
 			ul.major-icons li {
 				display: inline-block;
 				padding: 2.5em;
+				margin-right: 30px;
+				margin-left: 30px;
 				text-align: center;
 			}
 
