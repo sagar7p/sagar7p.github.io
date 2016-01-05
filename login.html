@@ -70,7 +70,7 @@
 <body>
     <div class="container">
         <div class="form-signin">
-            <h2 class="form-signin-heading">Entree </h2><label class="sr-only logstuff" for="inputEmail">Username</label>
+            <h2 id = "heading" class="form-signin-heading">Entree</h2><label class="sr-only logstuff" for="inputEmail">Username</label>
             <input autofocus="" class="form-control logstuff" id="inputUsername" placeholder="Username" required="1" type=
             "username"> 
             <label class="sr-only logstuff" for="inputPassword">Password</label> 
@@ -163,27 +163,27 @@
     </div><!-- /container -->
     <script>
         Parse.initialize("NeADgtzLWmPIP5xvyuISqc7rUL0BnY9qg1gLtnZf", "CtnGzF5zSNR7jZ0xUAIhCuYLApCg6xkC7Nzut4A3");
+        function login() {    
+            $("#login").hide();
+            $("#logout").show();
+            $("#add").show();
+            $('#registerbutton').hide();
+            $('.logstuff').hide();
+            $('#heading').html("Hello " + Parse.User.current().getUsername());
+        }
         
+        function logout() {    
+            $("#login").show();
+            $("#logout").hide();
+            $("#add").hide();
+            $('#registerbutton').show();
+            $('.logstuff').show();
+            $('#heading').html("Entree");
+        }
         
         $(document).ready(function(){
-            function login() {    
-                $("#login").hide();
-                $("#logout").show();
-                $("#add").show();
-                $('#registerbutton').hide();
-                $('.logstuff').hide();
-            }
-        
-            function logout() {    
-                $("#login").show();
-                $("#logout").hide();
-                $("#add").hide();
-                $('#registerbutton').show();
-                $('.logstuff').show();
-            }
-            
-            var currentUser = Parse.User.current();
-            if (currentUser) {
+            var currUser = Parse.User.current();
+            if (currUser) {
                 login();
                 // do stuff with the user
             } else {
@@ -202,15 +202,18 @@
             $('#login').on('click',function() {
                 var username = $('#inputUsername').val();
                 var password = $('#inputPassword').val();
+                var currentUser = Parse.User.current();
                 if (currentUser) {
                     // do stuff with the user
                 } else {
                     Parse.User.logIn(username, password, {
                       success: function(user) {
+                        alert("Succes " + user.getUsername());
                         login();
                       },
                       error: function(user, error) {
                           alert("could not log in");
+                          $('#addrecipe').modal('hide');
                       }
                     });
                 }
@@ -218,13 +221,14 @@
             
             //log out stuff
             $('#logout').on('click',function() {
+                var currentUser = Parse.User.current();
                 if (currentUser) {
                     // do stuff with the user
                     Parse.User.logOut();
                     $('#inputUsername').val("");
                     $("#inputPassword").val("");
-                    logout();
                     alert("Successfully Logged Out");
+                    logout();
                 } else {
                     // show the signup or login page
                     alert("Cannot Log Out");
@@ -264,14 +268,6 @@
                 }
             });
             
-            //register stuff
-            $("#registerbutton").on("click",function() {
-                var currentUser = Parse.User.current();
-                if (currentUser) {
-                    // do stuff with the user
-                    Parse.User.logOut();
-                }
-            })
             
             //register user
             $('#registeruser').on('click',function() {
@@ -299,8 +295,8 @@
                 
                 Parse.User.logIn(username, password, {
                   success: function(user) {
-                    // Do stuff after successful login.
                       login();
+                    // Do stuff after successful login.
                   },
                   error: function(user, error) {
                     // The login failed. Check error to see why.
