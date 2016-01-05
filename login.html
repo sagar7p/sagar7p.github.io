@@ -70,14 +70,17 @@
 <body>
     <div class="container">
         <div class="form-signin">
-            <h2 class="form-signin-heading">Entree Log In</h2><label class="sr-only" for="inputEmail">Username</label>
-            <input autofocus="" class="form-control" id="inputUsername" placeholder="Username" required="1" type=
-            "username"> <label class="sr-only" for="inputPassword">Password</label> <input class="form-control" id=
-            "inputPassword" placeholder="Password" required="1" type="password"> <button class=
-            "btn btn-lg btn-primary btn-block" data-target="#addrecipe" data-toggle="modal" id="login" type=
-            "submit">Log in</button> <button class="btn btn-lg btn-primary btn-block" id="logout">Log out</button>
-            <button id="registerbutton" class="btn btn-lg btn-primary btn-block register" data-target="#register" data-toggle="modal" type=
-            "">Register</button>
+            <h2 class="form-signin-heading">Entree </h2><label class="sr-only logstuff" for="inputEmail">Username</label>
+            <input autofocus="" class="form-control logstuff" id="inputUsername" placeholder="Username" required="1" type=
+            "username"> 
+            <label class="sr-only logstuff" for="inputPassword">Password</label> 
+            <input class="form-control logstuff" id="inputPassword" placeholder="Password" required="1" type="password"> 
+            <button class="btn btn-lg btn-primary btn-block" id="login" type=
+            "submit">Log in</button>
+            <button class="btn btn-lg btn-primary btn-block" data-target="#addrecipe" data-toggle="modal" id="add" type=
+            "submit">Add Recipe</button>
+            <button class="btn btn-lg btn-primary btn-block" id="logout">Log out</button>
+            <button id="registerbutton" class="btn btn-lg btn-primary btn-block register" data-target="#register" data-toggle="modal" type="">Register</button>
         </div><!-- Modal -->
         <div class="modal fade" id="addrecipe" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -160,7 +163,34 @@
     </div><!-- /container -->
     <script>
         Parse.initialize("NeADgtzLWmPIP5xvyuISqc7rUL0BnY9qg1gLtnZf", "CtnGzF5zSNR7jZ0xUAIhCuYLApCg6xkC7Nzut4A3");
-        $(document).ready(function(){ 
+        
+        
+        $(document).ready(function(){
+            function login() {    
+                $("#login").hide();
+                $("#logout").show();
+                $("#add").show();
+                $('#registerbutton').hide();
+                $('.logstuff').hide();
+            }
+        
+            function logout() {    
+                $("#login").show();
+                $("#logout").hide();
+                $("#add").hide();
+                $('#registerbutton').show();
+                $('.logstuff').show();
+            }
+            
+            var currentUser = Parse.User.current();
+            if (currentUser) {
+                login();
+                // do stuff with the user
+            } else {
+                logout();
+            }
+            
+            
             //form stuff
             $(".modal").on('hidden.bs.modal', function () {
                 $('.form1')[0].reset();
@@ -172,17 +202,15 @@
             $('#login').on('click',function() {
                 var username = $('#inputUsername').val();
                 var password = $('#inputPassword').val();
-                var currentUser = Parse.User.current();
                 if (currentUser) {
                     // do stuff with the user
                 } else {
                     Parse.User.logIn(username, password, {
                       success: function(user) {
-                        alert("Succes " + user.getUsername());
+                        login();
                       },
                       error: function(user, error) {
                           alert("could not log in");
-                          $('#addrecipe').modal('hide');
                       }
                     });
                 }
@@ -190,12 +218,12 @@
             
             //log out stuff
             $('#logout').on('click',function() {
-                var currentUser = Parse.User.current();
                 if (currentUser) {
                     // do stuff with the user
                     Parse.User.logOut();
                     $('#inputUsername').val("");
                     $("#inputPassword").val("");
+                    logout();
                     alert("Successfully Logged Out");
                 } else {
                     // show the signup or login page
@@ -272,6 +300,7 @@
                 Parse.User.logIn(username, password, {
                   success: function(user) {
                     // Do stuff after successful login.
+                      login();
                   },
                   error: function(user, error) {
                     // The login failed. Check error to see why.
