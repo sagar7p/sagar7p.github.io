@@ -70,7 +70,7 @@
 <body>
     <div class="container">
         <div class="form-signin">
-            <h2 id = "heading" class="form-signin-heading">Entree</h2><label class="sr-only logstuff" for="inputEmail">Username</label>
+            <h2 class="form-signin-heading">Entree </h2><label class="sr-only logstuff" for="inputEmail">Username</label>
             <input autofocus="" class="form-control logstuff" id="inputUsername" placeholder="Username" required="1" type=
             "username"> 
             <label class="sr-only logstuff" for="inputPassword">Password</label> 
@@ -169,7 +169,6 @@
             $("#add").show();
             $('#registerbutton').hide();
             $('.logstuff').hide();
-            $('#heading').html("Hello " + Parse.User.current().getUsername());
         }
         
         function logout() {    
@@ -178,7 +177,6 @@
             $("#add").hide();
             $('#registerbutton').show();
             $('.logstuff').show();
-            $('#heading').html("Entree");
         }
         
         $(document).ready(function(){
@@ -208,7 +206,7 @@
                 } else {
                     Parse.User.logIn(username, password, {
                       success: function(user) {
-                        alert("Succes " + user.getUsername());
+                        alert("Success " + user.getUsername());
                         login();
                       },
                       error: function(user, error) {
@@ -259,6 +257,11 @@
                         recipe.set("username",Parse.User.current().getUsername());
                         recipe.set("reheats",0);
                         recipe.save();
+                        var currentUser = Parse.User.current();
+                        var recipes = currentUser.get('recipes');
+                        recipes.push(recipe);
+                        currentUser.set(recipes);
+                        currentUser.save();
                         $('.form1')[0].reset();
                       // The file has been saved to Parse.
                     }, function(error) {
